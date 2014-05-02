@@ -1,0 +1,20 @@
+{
+  "name": "campustv-server",
+  "description": "cliente TV para a CampusTV",
+  "private": true,
+  "repository": "git://github.com/CampusPI/TV.git",
+  "main": "index",
+  "engines": {
+    "node": ">=0.10.28"
+  },
+  "dependencies": {
+    "hapi": "^4.1.0"
+  },
+  "devDependencies": {
+    "joi": "^3.1.0",
+    "lab": "^3.1.1"
+  },
+  "scripts": {
+    "test": "node ./node_modules/lab/bin/lab"
+  }
+}

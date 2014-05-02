@@ -1,0 +1,7 @@
+language: node_js
+
+node_js:
+  - 0.10
+
+notifications:
+  slack: pifct:t7VCTopo5DXpAz7XIzG8yuDm

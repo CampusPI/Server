@@ -2,6 +2,7 @@
   "name": "campustv-server",
   "description": "cliente TV para a CampusTV",
   "private": true,
+  "version": "0.0.0",
   "repository": "git://github.com/CampusPI/TV.git",
   "main": "index",
   "engines": {

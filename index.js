@@ -1,4 +1,4 @@
-var request = require('request');
+var req = require('request');
 var Hapi = require("hapi");
 var server = new Hapi.Server(8080, "localhost");
 
@@ -23,64 +23,63 @@ server.route({path: "/API/TV/Content", method: "GET", config: {handler: getConte
 server.route({path: "/API/TV/Video", method: "GET", config: {handler: getVideoList}});
 
 
-function requestWeather(){
-	request('http://api.wunderground.com/api/8375472c04b107a7/conditions/q/Portugal/Montijo.json', 'json', function(error, response, body){
-		if (!error && response.statusCode == 200){
-    			 return body;
-  			}
-	});
-}
-
 function getWeather(request, reply){
-	var weather = requestWeather();
-	reply(weather);
+  req('http://api.wunderground.com/api/8375472c04b107a7/conditions/q/Portugal/Montijo.json', function(error, response, body){
+    if (!error && response.statusCode == 200){
+      body = JSON.parse(body);
+      reply({
+        temp: body.current_observation.temp_c,
+        state: body.current_observation.icon
+      });
+    }
+  });
 }
 
 //substituir por informacao a serio
 function getBroadcastList(request, reply){
-	var broadcastList =[{
-		priority: 2,
-		type: "informacao",
-		text: "Este texto representa a informacao a passar em rodape a girar toda bonita"
-	}]
+  var broadcastList =[{
+    priority: 2,
+    type: "informacao",
+    text: "Este texto representa a informacao a passar em rodape a girar toda bonita"
+  }];
 
-	reply(broadcastList);
+  reply(broadcastList);
 }
 
 function getContentList(request, reply){
-	var contentList =[{
-		type: "Transportes",
-		obj: "",
-		title: "Fertagus",
-		content: [
-			["Roma-Areeiro", "15:10"],
-			["Roma-Areeiro", "15:30"],
-			["Setubal", "16:00"],
-			["Coina", "16:20"]
-		]
-	}]
+  var contentList =[{
+    type: "Transportes",
+    obj: "",
+    title: "Fertagus",
+    content: [
+    ["Roma-Areeiro", "15:10"],
+    ["Roma-Areeiro", "15:30"],
+    ["Setubal", "16:00"],
+    ["Coina", "16:20"]
+    ]
+  }];
 
-	reply(contentList);
+  reply(contentList);
 }
 
 function getVideoList(request, reply){
-	var videoList=[{
-			link: "www.youtube.com/vid1",
-			title: "Coelho1",
-			hour: "15:30",
-			length: "2:50",
-			description: "coelho aos saltos muito rapido"
-		},
-		{
-			link: "www.youtube.com/vid2",
-			title: "Coelho2",
-			hour: "15:30",
-			length: "2:50",
-			description: "coelho aos saltos muito rapido"
-		}
-	]
+  var videoList=[{
+    link: "www.youtube.com/vid1",
+    title: "Coelho1",
+    hour: "15:30",
+    length: "2:50",
+    description: "coelho aos saltos muito rapido"
+  },
+  {
+    link: "www.youtube.com/vid2",
+    title: "Coelho2",
+    hour: "15:30",
+    length: "2:50",
+    description: "coelho aos saltos muito rapido"
+  }
+  ];
 
-	reply(videoList);
+  reply(videoList);
 }
 
 module.exports = server;

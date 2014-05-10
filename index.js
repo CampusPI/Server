@@ -17,10 +17,10 @@ server.route({
 });
 
 
-server.route({path: "/API/TV/Weather", method: "GET", config: {handler: getWeather}});
-server.route({path: "/API/TV/Broadcast", method: "GET", config: {handler: getBroadcastList}});
-server.route({path: "/API/TV/Content", method: "GET", config: {handler: getContentList}});
-server.route({path: "/API/TV/Video", method: "GET", config: {handler: getVideoList}});
+server.route({path: "/api/tv/weather", method: "GET", config: {handler: getWeather}});
+server.route({path: "/api/tv/broadcast", method: "GET", config: {handler: getBroadcastList}});
+server.route({path: "/api/tv/content", method: "GET", config: {handler: getContentList}});
+server.route({path: "/api/tv/video", method: "GET", config: {handler: getVideoList}});
 
 
 function getWeather(request, reply){

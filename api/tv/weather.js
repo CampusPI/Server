@@ -5,7 +5,7 @@ var getWeather = function (request, reply){
     if (!error && response.statusCode === 200){
       body = JSON.parse(body);
       reply({
-        temp: body.current_observation.temp_c,
+        temp: parseInt(body.current_observation.temp_c,10),
         state: body.current_observation.icon
       });
     }

@@ -16,7 +16,8 @@
   },
   "devDependencies": {
     "joi": "^3.1.0",
-    "lab": "^3.1.1"
+    "lab": "^3.1.1",
+    "nock": "^0.30.0"
   },
   "scripts": {
     "test": "node ./node_modules/lab/bin/lab"

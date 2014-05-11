@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "hapi": "^4.1.0",
-    "redis": "0.10.1"
+    "redis": "0.10.1",
+    "request": "^2.33.0"
   },
   "devDependencies": {
     "joi": "^3.1.0",

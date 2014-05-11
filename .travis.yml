@@ -4,9 +4,7 @@ node_js:
   - 0.10
 
 after_success:
-  - if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then
-  -   echo "deploy"
-  - fi
+  - if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then echo "deploy" fi
 
 notifications:
   slack: pifct:t7VCTopo5DXpAz7XIzG8yuDm

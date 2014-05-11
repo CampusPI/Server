@@ -1,10 +1,10 @@
-var Lab = require("lab"),
-server = require("../../../");
+var Lab = require('lab'),
+server = require('../../../');
 
-Lab.test("Deve haver uma route para a root", function(done) {
+Lab.test('Deve haver uma route para a root', function(done) {
   var options = {
-    method: "GET",
-    url: "/api/tv/video"
+    method: 'GET',
+    url: '/api/tv/video'
   };
 
   server.inject(options, function(response) {

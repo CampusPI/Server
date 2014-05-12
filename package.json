@@ -15,6 +15,7 @@
     "require-directory": "^1.2.0"
   },
   "devDependencies": {
+    "hapi-mongodb": "^2.1.0",
     "joi": "^3.1.0",
     "lab": "^3.1.1",
     "nock": "^0.30.0"

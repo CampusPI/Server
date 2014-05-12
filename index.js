@@ -1,6 +1,8 @@
 var Hapi = require('hapi');
 var server = new Hapi.Server(8080, 'localhost');
-var routes = require('./routes');
+var routes = require('./config/routes');
+
+require('./config/plugins')(server);
 
 if (!module.parent) {
   server.start(function() {

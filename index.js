@@ -1,5 +1,5 @@
 var Hapi = require('hapi');
-var server = new Hapi.Server(8080, 'localhost');
+var server = new Hapi.Server(8080, 'localhost', { cors: true });
 var routes = require('./config/routes');
 
 require('./config/plugins')(server);

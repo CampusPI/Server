@@ -1,15 +1,8 @@
-var dbOpts = {
-  'url': 'mongodb://localhost:27017/test',
-  'options': {
-    'db': {
-      'native_parser': false
-    }
-  }
-};
+var config = require('./db');
 
 module.exports = function(server) {
 
-  server.pack.require('hapi-mongodb', dbOpts, function(err) {
+  server.pack.require('hapi-mongodb', config, function(err) {
     if (err) {
       console.error(err);
       throw err;

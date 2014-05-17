@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "hapi": "^4.1.0",
+    "mongojs": "^0.13.0",
     "redis": "0.10.1",
     "request": "^2.33.0",
     "require-directory": "^1.2.0"

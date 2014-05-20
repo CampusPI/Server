@@ -8,7 +8,7 @@ Lab.experiment ('/api/tv/content', function () {
     url: '/api/tv/content'
   };
 
-  Lab.test('should exist', function(done) {
+  /*Lab.test('should exist', function(done) {
     server.inject(options, function(response) {
       var result = response.result;
 
@@ -17,6 +17,6 @@ Lab.experiment ('/api/tv/content', function () {
 
       done();
     });
-  });
+  });*/
 
 });

@@ -1,5 +1,5 @@
 var getVideo = function (request, reply){
-  var videoList = [
+  /*var videoList = [
     {
       link: 'www.youtube.com/vid1',
       title: 'Coelho1',
@@ -16,7 +16,14 @@ var getVideo = function (request, reply){
     }
   ];
 
-  reply(videoList);
+  reply(videoList);*/
+
+
+    var db = request.server.plugins['hapi-mongodb'].db;
+
+    db.collection('videos').find().toArray(function(err, results){
+        reply(results);
+    })
 };
 
 module.exports = getVideo;

@@ -37,7 +37,35 @@ function dbBroadcast() {
 }
 
 function dbContent() {
-  console.log('content');
+
+  var o = [
+    {
+      type: 'Ementas',
+      content: [
+        {
+          'name': 'Casa do Pessoal',
+          'Sopa': ['Legumes'],
+          'Prato(s) do dia': [
+            'Esparguete à bolonhesa',
+            'Lulas recheadas',
+            'Bitoque'
+          ],
+          'Sobremesas': ['Arroz doce', 'Salada de frutas']
+        },
+        {
+          'name': 'Teresa Gato',
+          'Sopa': ['Hortaliça'],
+          'Prato(s) do dia': [
+            'Lombinhos de vitela à casa',
+            'Bacalhau à Brás'
+          ],
+          'Sobremesas': ['Doces Vaiados', 'Papa Doce', 'Fruta da época']
+        }
+      ],
+    },
+  ];
+
+  insert('contents',o);
 }
 
 function dbDelete() {

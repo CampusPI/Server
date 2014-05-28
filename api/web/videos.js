@@ -3,7 +3,7 @@ var getVideos = function (request, reply){
 
   db.collection('videos').find().toArray(function(err, results){
     reply(results);
-  })
+  });
 };
 
 module.exports.handler = getVideos;

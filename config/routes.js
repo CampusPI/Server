@@ -13,10 +13,10 @@ routes.push({path: '/', method: 'GET', config: {handler: function (request, repl
  * TV Routes
  */
 
-routes.push({path: '/api/tv/weather', method: 'GET', config: {handler: controller.tv.weather}});
-routes.push({path: '/api/tv/broadcast', method: 'GET', config: {handler: controller.tv.broadcast}});
-routes.push({path: '/api/tv/content', method: 'GET', config: {handler: controller.tv.content}});
-routes.push({path: '/api/tv/video', method: 'GET', config: {handler: controller.tv.video}});
+routes.push({path: '/api/tv/weather', method: 'GET', config: controller.tv.weather});
+routes.push({path: '/api/tv/broadcast', method: 'GET', config: controller.tv.broadcast});
+routes.push({path: '/api/tv/content', method: 'GET', config: controller.tv.content});
+routes.push({path: '/api/tv/video', method: 'GET', config: controller.tv.video});
 
 /*
  * WEB Routes

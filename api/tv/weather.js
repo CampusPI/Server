@@ -5,4 +5,4 @@ var getWeather = function (request, reply){
   });
 };
 
-module.exports = getWeather;
+module.exports.handler = getWeather;

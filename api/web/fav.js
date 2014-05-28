@@ -4,7 +4,7 @@ var getFav = function (request, reply){
   //params:user_id
   db.collection('favorites').find().toArray(function(err, results){
     reply(results);
-  })
+  });
 };
 
 var postFav = function (request, reply){
@@ -13,7 +13,7 @@ var postFav = function (request, reply){
   //params:video_id, user_id
   db.collection('favorites').find().toArray(function(err, results){
     reply(results);
-  })
+  });
 };
 
 module.exports.get = {handler:getFav};

@@ -4,7 +4,7 @@ var getVideo = function (request, reply){
   //params:id
   db.collection('videos').findOne().toArray(function(err, results){
     reply(results);
-  })
+  });
 };
 
 module.exports.handler = getVideo;

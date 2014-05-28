@@ -1,12 +1,12 @@
 var getContent = function (request, reply){
-    var db = request.server.plugins['hapi-mongodb'].db;
+  var db = request.server.plugins['hapi-mongodb'].db;
 
-    db.collection('contents').find().toArray(function(err, results){
-        reply(results);
-    });
+  db.collection('contents').find().toArray(function(err, results){
+    reply(results);
+  });
 };
 
-module.exports = getContent;
+module.exports.handler = getContent;
 
 // IMPORT TO DB
 // {"type": "Transportes", "title": "Fertagus", "destination": "Roma-Areeiro", "schedule": "15:10"}

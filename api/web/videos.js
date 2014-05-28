@@ -6,4 +6,4 @@ var getVideos = function (request, reply){
   })
 };
 
-module.exports = getVideos;
+module.exports.handler = getVideos;

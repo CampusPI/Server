@@ -16,5 +16,5 @@ var postFav = function (request, reply){
   })
 };
 
-module.exports.get = getFav;
-module.exports.post = postFav;
+module.exports.get = {handler:getFav};
+module.exports.post = {handler:postFav};

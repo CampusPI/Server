@@ -9,12 +9,16 @@ case 'broadcast':
 case 'content':
   dbContent();
   break;
+case 'videos':
+  dbVideos();
+  break;
 case 'delete':
   dbDelete();
   break;
 default:
   dbBroadcast();
   dbContent();
+  dbVideos();
   console.log('all');
 }
 

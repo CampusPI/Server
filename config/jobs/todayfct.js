@@ -25,7 +25,7 @@ module.exports = function(db,schedule) {
     imap.openBox('INBOX', true, cb);
   }
 
-  schedule.scheduleJob('*/1 * * * *', function(){
+  schedule.scheduleJob('*/30 * * * *', function(){
     imap.once('ready', function() {
       openInbox(function(err) {
         if (err) { throw err; }
@@ -93,6 +93,7 @@ module.exports = function(db,schedule) {
       if (line.indexOf('______') !== -1) { check = true;
         var result = '';
         for (var i = 0; i <= buffc.length; i++) {
+          console.log(buff[i]);
           var result = buff[i].name+' \n '+buff[i];
           todayFCT.insert(result);
         };

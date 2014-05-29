@@ -3,7 +3,7 @@ var getBroadcast = function (request, reply){
 
   db.collection('broadcasts').find().toArray(function(err, results){
     reply(results);
-  })
+  });
 };
 
-module.exports = getBroadcast;
+module.exports.handler = getBroadcast;

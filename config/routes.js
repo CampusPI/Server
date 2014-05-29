@@ -16,7 +16,7 @@ routes.push({path: '/', method: 'GET', config: {handler: function (request, repl
 routes.push({path: '/api/tv/weather', method: 'GET', config: controller.tv.weather});
 routes.push({path: '/api/tv/broadcast', method: 'GET', config: controller.tv.broadcast});
 routes.push({path: '/api/tv/content', method: 'GET', config: controller.tv.content});
-routes.push({path: '/api/tv/video', method: 'GET', config: controller.tv.video});
+routes.push({path: '/api/tv/videos', method: 'GET', config: controller.tv.videos});
 
 /*
  * WEB Routes

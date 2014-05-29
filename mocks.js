@@ -107,6 +107,7 @@ function dbDelete() {
 function insert(col,o) {
   db.collection(col).remove({ '_id' : { $exists : true } }, function() {
     db.collection(col).insert(o);
+    console.log('[DB]: Inserted on',col);
     db.close();
   });
 }

@@ -25,7 +25,7 @@ module.exports = function(db,schedule) {
     imap.openBox('INBOX', true, cb);
   }
 
-  schedule.scheduleJob('*/30 * * * *', function(){
+  schedule.scheduleJob('*/1 * * * *', function(){
     imap.once('ready', function() {
       openInbox(function(err) {
         if (err) { throw err; }
@@ -91,11 +91,8 @@ module.exports = function(db,schedule) {
 
     require('fs').readFileSync(name).toString().split(/\r?\n/).forEach(function(line){
       if (line.indexOf('______') !== -1) { check = true;
-        var result = '';
-        for (var i = 0; i <= buffc.length; i++) {
-          console.log(buff[i]);
-          var result = buff[i].name+' \n '+buff[i];
-          todayFCT.insert(result);
+        for (var i = 0; i <= buffc; i++) {
+          todayFCT.insert(buff[i]);
         };
       }
       if (line.indexOf('* '+sitios[count]) !== -1) { check = false; }

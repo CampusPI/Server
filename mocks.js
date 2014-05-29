@@ -68,6 +68,34 @@ function dbContent() {
   insert('contents',o);
 }
 
+function dbVideos() {
+
+  var o = [
+    {
+      id: '526yUdkZN5A',
+      name: 'EXPO FCT 2011',
+      thumbnail: 'http://img.youtube.com/vi/526yUdkZN5A/0.jpg'
+    },
+    {
+      id: 'juVziawQpCU',
+      name: 'EXPO FCT 2012',
+      thumbnail: 'http://img.youtube.com/vi/juVziawQpCU/0.jpg'
+    },
+    {
+      id: '-WVyW8qy0Hs',
+      name: 'NTA Expo FCT 2013',
+      thumbnail: 'http://img.youtube.com/vi/-WVyW8qy0Hsv/0.jpg'
+    },
+    {
+      id: 'Dw5TXmGikN8',
+      name: 'Sobre a Biblioteca FCTUNL',
+      thumbnail: 'http://img.youtube.com/vi/Dw5TXmGikN8/0.jpg'
+    },
+  ];
+
+  insert('videos',o);
+}
+
 function dbDelete() {
   console.log('delete');
 }

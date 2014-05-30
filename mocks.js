@@ -48,22 +48,22 @@ function dbContent() {
       content: [
         {
           'name': 'Casa do Pessoal',
-          'Sopa': ['Legumes'],
+          'Sopa': ['Nabiça'],
           'Prato(s) do dia': [
-            'Esparguete à bolonhesa',
-            'Lulas recheadas',
+            'Perna de peru estufada',
+            'Massa de bacalhau',
             'Bitoque'
           ],
-          'Sobremesas': ['Arroz doce', 'Salada de frutas']
+          'Sobremesas': ['Doce da tia', 'Salada de frutas']
         },
         {
           'name': 'Teresa Gato',
           'Sopa': ['Hortaliça'],
           'Prato(s) do dia': [
             'Lombinhos de vitela à casa',
-            'Bacalhau à Brás'
+            'Alheira de Mirandela'
           ],
-          'Sobremesas': ['Doces Vaiados', 'Papa Doce', 'Fruta da época']
+          'Sobremesas': ['Doces Vaiados', 'Fruta da época']
         }
       ],
     },

@@ -1,9 +1,8 @@
 var getVideo = function (request, reply){
   var db = request.server.plugins['hapi-mongodb'].db;
 
-  //params:id
-  db.collection('videos').findOne().toArray(function(err, results){
-    reply(results);
+  db.collection('videos').find({id: request.params.id}).toArray(function(err, results){
+    reply(results[0]);
   });
 };
 

@@ -1,5 +1,5 @@
 var Hapi = require('hapi');
-var server = new Hapi.Server(80, 'localhost', { cors: true });
+var server = new Hapi.Server(process.env.PORT || 5000, 'localhost', { cors: true });
 var routes = require('./config/routes');
 
 // Jobs for updating the database with external API's

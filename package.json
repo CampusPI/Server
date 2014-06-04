@@ -9,6 +9,7 @@
     "node": "0.10.x"
   },
   "dependencies": {
+    "forever": "^0.11.1",
     "hapi": "^4.1.0",
     "mongojs": "^0.13.0",
     "node-schedule": "^0.1.13",

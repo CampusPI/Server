@@ -24,6 +24,6 @@
   },
   "scripts": {
     "test": "node ./node_modules/lab/bin/lab",
-    "start": "node ./node_modules/forever/bin/forever index.js",
+    "start": "node ./node_modules/forever/bin/forever index.js"
   }
 }

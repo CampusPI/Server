@@ -23,6 +23,7 @@
     "nock": "^0.30.0"
   },
   "scripts": {
-    "test": "node ./node_modules/lab/bin/lab"
+    "test": "node ./node_modules/lab/bin/lab",
+    "start": "node ./node_modules/forever/bin/forever index.js",
   }
 }

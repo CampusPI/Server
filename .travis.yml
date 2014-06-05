@@ -8,14 +8,14 @@ services: mongodb
 before_install:
 - curl $KEY_TOKEN > ~/.ssh/id_rsa
 - chmod 600 ~/.ssh/id_rsa
+- echo -e "Host 188.226.188.59\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- gem install capistrano --no-ri --no-rdoc
+- eval "$(ssh-agent)"
+- ssh-add
 
 after_success:
   #- if [[ "$TRAVIS_PULL_REQUEST" == false ]] && [[ "$TRAVIS_BRANCH" == master ]]; then
   - if [[ "$TRAVIS_PULL_REQUEST" == false ]]; then
-  - curl $KEY_TOKEN > ./deploy_key
-  - chmod 600 ./deploy_key
-  - eval "$(ssh-agent)"
-  - ssh-add ./deploy_key
   - git remote add deploy dokku@pi.campinhos.pt:server
   - git push deploy
   - echo "Huge Succcess";

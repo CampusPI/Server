@@ -8,7 +8,7 @@ before_install:
   - curl $KEY_TOKEN > ~/.ssh/id_rsa
   - curl $KEY_TOKENP > ~/.ssh/id_rsa.pub
   - chmod 600 ~/.ssh/id_rsa*
-  - echo -e "Host 188.226.188.59\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - eval `ssh-agent -s`
   - ssh-add ~/.ssh/id_rsa
 

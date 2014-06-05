@@ -8,10 +8,9 @@ services: mongodb
 after_success:
   #- if [[ "$TRAVIS_PULL_REQUEST" == false ]] && [[ "$TRAVIS_BRANCH" == master ]]; then
   - if [[ "$TRAVIS_PULL_REQUEST" == false ]]; then
-  - touch ./travis/deploy_key
-  - curl $KEY_TOKEN > ./travis/deploy_key
-  - chmod 600 .travis/deploy_key
-  - ssh-add .travis/deploy_key
+  - curl $KEY_TOKEN > ./deploy_key
+  - chmod 600 ./deploy_key
+  - ssh-add ./deploy_key
   - git remote add deploy dokku@pi.campinhos.pt:server
   - git push deploy
   - echo "Huge Succcess";

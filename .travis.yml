@@ -15,8 +15,7 @@ before_install:
 after_success:
   - if [[ "$TRAVIS_PULL_REQUEST" == false ]]; then
   - git remote add deploy dokku@pi.campinhos.pt:server
-  - git push deploy
-  - echo "Huge Succcess";
+  - git push deploy master
   - fi
 
 notifications:

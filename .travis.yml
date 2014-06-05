@@ -2,19 +2,17 @@ language: node_js
 
 node_js:
   - 0.10
-
 services: mongodb
 
 before_install:
-- curl $KEY_TOKEN > ~/.ssh/id_rsa
-- chmod 600 ~/.ssh/id_rsa
-- echo -e "Host 188.226.188.59\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- gem install capistrano --no-ri --no-rdoc
-- eval "$(ssh-agent)"
-- ssh-add
+  - curl $KEY_TOKEN > ~/.ssh/id_rsa
+  - curl $KEY_TOKENP > ~/.ssh/id_rsa.pub
+  - chmod 600 ~/.ssh/id_rsa*
+  - echo -e "Host 188.226.188.59\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - eval `ssh-agent -s`
+  - ssh-add ~/.ssh/id_rsa
 
 after_success:
-  #- if [[ "$TRAVIS_PULL_REQUEST" == false ]] && [[ "$TRAVIS_BRANCH" == master ]]; then
   - if [[ "$TRAVIS_PULL_REQUEST" == false ]]; then
   - git remote add deploy dokku@pi.campinhos.pt:server
   - git push deploy
@@ -26,4 +24,5 @@ notifications:
 
 env:
   global:
-    secure: TmU4AAGXnOtn5LBnsZGVtA5zh+9oB1xW1ujZRTy8a4mNwGNaLTRQYBl6eljbm5dz9TagKZ0wlSUHS138+OqGvOnqBg+HQU5ou8XArzBWPj+kIVdV8bZ4G0mwoK+CJw6dgG96lBwFso/artOo93rJRJa9In4zvoCgl0493toDtAE=
+  - secure: LD0/dwfuSdPhsIolBti8DOesHb4hMFWCgaTGbHSffYN+QfWHNbFmn44AKzrVUa50JjBn25CHWrEaU9vdLxNy08oM6sYbUIq+1V4f8fnKMdWMnZeyZkzDsG/CkS4irXLEBFBBMQ64W6oottqR1JH9B6K+GfOi6h96Ldogm+MPCjk=
+  - secure: PofhlULQvQXXElq6Np2BtgopdEfRGbdpGV3eED47mXaFghhr6mgwbU5mgJ9goSmR5poCwPFomAsYKZZWEgESNICQ8s/jK0IR8jRqNpyMMnpHGLX/8LcJZUwUr0Epwqmh5BiLmbbeTwjFM3E46Ya9tg/iWLVe6fOAHFM1Hc0ZhVM=

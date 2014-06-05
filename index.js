@@ -14,6 +14,7 @@ if (!module.parent) {
   });
 }
 
+// Insert the routes on the server
 server.route(routes);
 
 module.exports = server;

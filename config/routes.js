@@ -6,8 +6,7 @@ var controller = require('require-directory')(module, './api'),
  * Root Route
  */
 
-routes.push({path: '/', method: 'GET', config: {handler: function (request, reply) {reply({respose: 'hello!'});}}});
-
+routes.push({path: '/', method: 'GET', config: { auth: 'passport' }, handler: function (request, reply) { reply().redirect('/');}});
 
 /*
  * TV Routes
@@ -26,6 +25,9 @@ routes.push({path: '/api/web/videos', method: 'GET', config: controller.web.vide
 routes.push({path: '/api/web/video', method: 'GET', config: controller.web.video});
 routes.push({path: '/api/web/favorites', method: 'GET', config: controller.web.fav.get});
 routes.push({path: '/api/web/favorites', method: 'POST', config: controller.web.fav.post});
-
+routes.push({path: '/api/web/login', method: 'GET', config: controller.web.auth.login});
+routes.push({path: '/api/web/auth/google', method: 'GET', config: controller.web.auth.google});
+routes.push({path: '/api/web/auth/google/return', method: 'GET', config: controller.web.auth.callback});
+routes.push({path: '/api/web/logout', method: 'GET', config: controller.web.auth.logout});
 
 module.exports = routes;

@@ -14,7 +14,11 @@
     "node-schedule": "^0.1.13",
     "redis": "0.10.1",
     "request": "^2.33.0",
-    "require-directory": "^1.2.0"
+    "require-directory": "^1.2.0",
+    "passport": "~0.2.0",
+    "yar": "~2.2.0",
+    "travelogue": "~2.0.1",
+    "passport-google": "~0.3.0"
   },
   "devDependencies": {
     "hapi-mongodb": "^2.1.0",

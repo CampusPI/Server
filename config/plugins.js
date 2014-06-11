@@ -17,4 +17,18 @@ module.exports = function(server) {
     }
   });
 
+
+  var options = {
+    subscribers: {
+      'console': ['ops', 'request', 'log', 'error']
+    }
+  };
+
+  server.pack.require('good', options, function (err) {
+    if (err) {
+      console.error(err);
+      throw err;
+    }
+  });
+
 };

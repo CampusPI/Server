@@ -2,14 +2,17 @@
   "name": "campustv-server",
   "description": "cliente TV para a CampusTV",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": "git://github.com/CampusPI/TV.git",
   "main": "index",
   "engines": {
-    "node": ">=0.10.28"
+    "node": "0.10.x"
   },
   "dependencies": {
+    "forever": "^0.11.1",
+    "good": "^2.0.0",
     "hapi": "^4.1.0",
+    "hapi-mongodb": "^2.1.0",
     "mongojs": "^0.13.0",
     "node-schedule": "^0.1.13",
     "redis": "0.10.1",
@@ -21,12 +24,12 @@
     "passport-google": "~0.3.0"
   },
   "devDependencies": {
-    "hapi-mongodb": "^2.1.0",
     "joi": "^3.1.0",
     "lab": "^3.1.1",
     "nock": "^0.30.0"
   },
   "scripts": {
-    "test": "node ./node_modules/lab/bin/lab"
+    "test": "node ./node_modules/lab/bin/lab",
+    "start": "node ./node_modules/forever/bin/forever index.js"
   }
 }

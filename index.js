@@ -1,5 +1,6 @@
 var Hapi = require('hapi');
-var server = new Hapi.Server(8080, 'localhost', { cors: true });
+var port = process.env.PORT || 8080;
+var server = new Hapi.Server(port, { cors: true });
 var routes = require('./config/routes');
 
 // Jobs for updating the database with external API's
@@ -14,6 +15,7 @@ if (!module.parent) {
   });
 }
 
+// Insert the routes on the server
 server.route(routes);
 
 module.exports = server;

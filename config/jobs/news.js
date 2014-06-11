@@ -1,6 +1,9 @@
 var feed = require("feed-read");
 var cheerio = require('cheerio');
 
+//var mongojs = require('mongojs');
+//var db = mongojs(require('../db').url);
+
 
 module.exports = function(db,schedule) {
 
@@ -19,7 +22,12 @@ module.exports = function(db,schedule) {
             //   * "published" - The date that the article was published (Date).
             //   * "feed"      - {name, source, link}
             //
-            //var objArray = new Array(articles.length);
+
+            var dbRes = new Array();
+            db.collection('news').find().toArray(function(err, results){
+                dbRes = results;
+            });
+
             for (var i = 0; i < articles.length; i++) {
                 $ = cheerio.load(articles[i].content);
 
@@ -30,13 +38,13 @@ module.exports = function(db,schedule) {
                     "publicado": articles[i].published
                 };
                 //if link n existir repetido
-                news.insert(tempVar);
-
-                console.log(tempVar);
-                console.log(" ");
-                console.log(" ");
-
-                //objArray[i] = tempVar;
+                    var exists = false;
+                    for(int = 0; i < dbRes.length; i++){
+                        if(dbRes[i].link == tempVar.link)
+                        exists = true;
+                    }
+                    if(exists == false)
+                    news.insert(tempVar);
             }
         });
     });

@@ -13,15 +13,6 @@ module.exports = function(db,schedule) {
 
         feed("http://www.fct.unl.pt/en/noticias/rss.xml", function (err, articles) {
             if (err) throw err;
-            // Each article has the following properties:
-            //
-            //   * "title"     - The article title (String).
-            //   * "author"    - The author's name (String).
-            //   * "link"      - The original article link (String).
-            //   * "content"   - The HTML content of the article (String).
-            //   * "published" - The date that the article was published (Date).
-            //   * "feed"      - {name, source, link}
-            //
 
             var dbRes = new Array();
             db.collection('news').find().toArray(function(err, results){

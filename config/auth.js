@@ -9,7 +9,7 @@ module.exports = {
     hostname: 'localhost',
     port: 8080,
     urls: {
-      failureRedirect: '/login',
+      failureRedirect: '/api/web/login',
       successRedirect: '/'
     },
     google: {

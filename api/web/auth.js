@@ -11,13 +11,15 @@ var login = function (request, reply){
 };
 
 var google = function (request, reply){
-  
+
+  var Passport = request.server.plugins['travelogue'].passport;
   Passport.authenticate('google')(request, reply);
 
 };
 
 var callback = function (request, reply){
   
+  var Passport = request.server.plugins['travelogue'].passport;
   Passport.authenticate('google', {
     failureRedirect: config.travelogue.urls.failureRedirect,
     successRedirect: config.travelogue.urls.successRedirect,

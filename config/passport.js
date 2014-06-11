@@ -1,6 +1,6 @@
 var configAuth = require('./auth');
 
-module.exports = function(server) {
+module.exports.in = function(server) {
 
   server.auth.strategy('passport', 'passport');
 

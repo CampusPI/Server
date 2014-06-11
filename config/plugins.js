@@ -12,8 +12,7 @@ module.exports = function(server) {
 
   var options = {
     subscribers: {
-      'console': ['ops', 'request', 'log', 'error'],
-      'logs/': ['request', 'log']
+      'console': ['ops', 'request', 'log', 'error']
     }
   };
 

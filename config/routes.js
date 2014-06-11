@@ -6,7 +6,13 @@ var controller = require('require-directory')(module, './api'),
  * Root Route
  */
 
-routes.push({path: '/', method: 'GET', config: {handler: function (request, reply) {reply({respose: 'hello!'});}}});
+routes.push({path: '/', method: 'GET', config: {handler: function (request, reply) {
+  var app = require('../package.json');
+  reply({
+    Name: app.name,
+    Version: app.version
+  });
+}}});
 
 
 /*

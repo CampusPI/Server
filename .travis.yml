@@ -8,6 +8,8 @@ services: mongodb
 before_install:
   - curl $KEY_TOKEN > ~/.ssh/id_rsa
   - curl $KEY_TOKENP > ~/.ssh/id_rsa.pub
+  - curl $GOOGLE > ./config/google.js
+  - curl $IMAP > ./config/imap.js
   - chmod 600 ~/.ssh/id_rsa*
   - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - eval `ssh-agent -s`
@@ -24,5 +26,7 @@ notifications:
 
 env:
   global:
-  - secure: LD0/dwfuSdPhsIolBti8DOesHb4hMFWCgaTGbHSffYN+QfWHNbFmn44AKzrVUa50JjBn25CHWrEaU9vdLxNy08oM6sYbUIq+1V4f8fnKMdWMnZeyZkzDsG/CkS4irXLEBFBBMQ64W6oottqR1JH9B6K+GfOi6h96Ldogm+MPCjk=
-  - secure: PofhlULQvQXXElq6Np2BtgopdEfRGbdpGV3eED47mXaFghhr6mgwbU5mgJ9goSmR5poCwPFomAsYKZZWEgESNICQ8s/jK0IR8jRqNpyMMnpHGLX/8LcJZUwUr0Epwqmh5BiLmbbeTwjFM3E46Ya9tg/iWLVe6fOAHFM1Hc0ZhVM=
+    - secure: LD0/dwfuSdPhsIolBti8DOesHb4hMFWCgaTGbHSffYN+QfWHNbFmn44AKzrVUa50JjBn25CHWrEaU9vdLxNy08oM6sYbUIq+1V4f8fnKMdWMnZeyZkzDsG/CkS4irXLEBFBBMQ64W6oottqR1JH9B6K+GfOi6h96Ldogm+MPCjk=
+    - secure: PofhlULQvQXXElq6Np2BtgopdEfRGbdpGV3eED47mXaFghhr6mgwbU5mgJ9goSmR5poCwPFomAsYKZZWEgESNICQ8s/jK0IR8jRqNpyMMnpHGLX/8LcJZUwUr0Epwqmh5BiLmbbeTwjFM3E46Ya9tg/iWLVe6fOAHFM1Hc0ZhVM=
+    - secure: gbpd0YysaHAIJ9n+3ccFKQclIhfv3Bpu4sNVL/ElwpJ820yuEB5N+eEBfBVYtreVg2P1nNGkVTWp8D0jn0Bw2xtt0a9zwJ1FvniKKR9dbAHmIGCJ+EU9Cs1jeZC9AV+SoK2Wf3Qsg1ZZaQtufIfazNA60sfoS3p4HlH7VA/vgAs=
+    - secure: REaS5YmaYm4YmdBXEQrzSstzeC13dpkex+dd2n5QsRxDbiCBrlAwfIa7KNEbWB2z7K9/My+Qh3VArP5sfWpMkHrTsfVeBZKwvtiN3eGKjH8QSQuWSwUvrJunA79ZBf9FGMrCZiAexO2c97ekkMZCDKi3NhnmML8u2eK8oK+B0nM=

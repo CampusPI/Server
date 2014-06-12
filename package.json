@@ -21,13 +21,8 @@
     "request": "^2.33.0",
     "require-directory": "^1.2.0"
   },
-  "devDependencies": {
-    "joi": "^3.1.0",
-    "lab": "^3.1.1",
-    "nock": "^0.30.0"
-  },
   "scripts": {
-    "test": "node ./node_modules/lab/bin/lab",
+    "test": "echo \"No test specified\" && exit 0",
     "start": "node ./node_modules/forever/bin/forever index.js"
   }
 }

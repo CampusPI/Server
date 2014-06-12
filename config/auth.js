@@ -11,10 +11,6 @@ module.exports = {
     urls: {
       failureRedirect: '/api/web/login',
       successRedirect: '/'
-    },
-    google: {
-      realm: "http://localhost:8080",
-      returnURL: "http://localhost:8080/api/web/auth/google/return"
     }
   }
 };

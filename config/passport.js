@@ -1,9 +1,8 @@
-var configAuth = require('./auth');
 var google = require('./google');
 var mongojs = require('mongojs');
 var db = mongojs(require('./db').url);
 
-module.exports.in = function(server) {
+module.exports = function(server) {
 
   var users = db.collection('users');
   var loginUsers = db.collection('loginUsers');
@@ -12,7 +11,7 @@ module.exports.in = function(server) {
 
   var Passport = server.plugins.travelogue.passport;
   var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-  
+
   Passport.use(new GoogleStrategy(google, function (accessToken, refreshToken, profile, done) {
     if (validateEmail(profile._json.email)) {
       users.update(

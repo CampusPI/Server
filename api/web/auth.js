@@ -13,7 +13,8 @@ var login = function (request, reply){
 var google = function (request, reply){
 
   var Passport = request.server.plugins['travelogue'].passport;
-  Passport.authenticate('google')(request, reply);
+  Passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/userinfo.profile',
+                                            'https://www.googleapis.com/auth/userinfo.email']})(request, reply);
 
 };
 

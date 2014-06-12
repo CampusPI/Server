@@ -15,16 +15,18 @@
     "good": "^2.0.0",
     "hapi": "^4.1.0",
     "hapi-mongodb": "^2.1.0",
+    "imap": "^0.8.10",
+    "mimelib": "^0.2.16",
     "mongojs": "^0.13.0",
     "node-schedule": "^0.1.13",
+    "passport": "~0.2.0",
+    "passport-google": "~0.3.0",
+    "passport-google-oauth": "~0.1.5",
     "redis": "0.10.1",
     "request": "^2.33.0",
     "require-directory": "^1.2.0",
-    "passport": "~0.2.0",
-    "yar": "~2.2.0",
     "travelogue": "~2.0.1",
-    "passport-google": "~0.3.0",
-    "passport-google-oauth": "~0.1.5"
+    "yar": "~2.2.0"
   },
   "devDependencies": {
     "joi": "^3.1.0",

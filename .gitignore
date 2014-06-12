@@ -4,3 +4,4 @@ node_modules/
 config/imap.js
 config/google.js
 logs
+test-*

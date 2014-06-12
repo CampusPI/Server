@@ -91,10 +91,10 @@ module.exports = function(db,schedule) {
 
     require('fs').readFileSync(name).toString().split(/\r?\n/).forEach(function(line){
       if (line.indexOf('______') !== -1) { check = true;
-        for (var i = 0; i <= buffc; i++) {
+        /*for (var i = 0; i <= buffc; i++) {
           console.log(buff[i]);
-          // todayFCT.insert(buff[i]);
-        };
+          todayFCT.insert(buff[i]);
+        };*/
       }
       if (line.indexOf('* '+sitios[count]) !== -1) { check = false; }
       if (!check && line !== '') {

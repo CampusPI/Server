@@ -1,6 +1,5 @@
 var feed = require("feed-read");
 var cheerio = require('cheerio');
-var async = require("async");
 
 
 module.exports = function(db,schedule) {

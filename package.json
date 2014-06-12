@@ -9,6 +9,8 @@
     "node": "0.10.x"
   },
   "dependencies": {
+    "cheerio": "^0.17.0",
+    "feed-read": "0.0.1",
     "forever": "^0.11.1",
     "good": "^2.0.0",
     "hapi": "^4.1.0",

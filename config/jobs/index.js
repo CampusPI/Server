@@ -6,3 +6,4 @@ require ('./weather')(db,schedule);
 require ('./broadcast')(db,schedule);
 require ('./strikes')(db,schedule);
 require ('./todayfct')(db,schedule);
+require ('./news')(db,schedule);

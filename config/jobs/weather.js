@@ -8,8 +8,7 @@ module.exports = function(db,schedule) {
 
   var weather = db.collection('weather');
 
-
-  schedule.scheduleJob('*/25 * * * *', function(){
+  var getWeather = function() {
     req('http://api.wunderground.com/api/8375472c04b107a7/conditions/q/Portugal/Almada.json', function(error, response, body){
       if (!error && response.statusCode === 200){
         body = JSON.parse(body);
@@ -19,7 +18,12 @@ module.exports = function(db,schedule) {
             state: body.current_observation.icon
           });
         });
+        console.log('[Job] Weather');
       }
     });
-  });
+  };
+
+  getWeather();
+
+  schedule.scheduleJob('*/30 * * * *', getWeather);
 };

@@ -10,12 +10,16 @@ module.exports = function(db,schedule) {
 
   var broadcast = db.collection('broadcast');
 
-
-  schedule.scheduleJob('* */12 * * *', function(){
+  var getBroadcast = function() {
     req('http://hagreve.com/api/v2/strikes', function(error, response, body){
       if (!error && response.statusCode === 200){
-        broadcast.insert(JSON.parse(body));      
+        broadcast.insert(JSON.parse(body));
+        console.log('[Job] Broadcast');
       }
     });
-  });
+  };
+
+  getBroadcast();
+
+  schedule.scheduleJob('* */12 * * *', getBroadcast);
 };

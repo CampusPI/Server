@@ -22,7 +22,7 @@
     "require-directory": "^1.2.0"
   },
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0",
+    "test": "node index.js& sleep 10; kill $!",
     "start": "node ./node_modules/forever/bin/forever index.js"
   }
 }

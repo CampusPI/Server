@@ -10,7 +10,7 @@ module.exports = function(db,schedule) {
   var news = db.collection('news');
 
   var getNews = function() {
-    feed('http://www.fct.unl.pt/en/noticias/rss.xml', function (err, articles) {
+    feed('http://www.fct.unl.pt/noticias/rss.xml', function (err, articles) {
       if (err) {throw err;}
       console.log('[Job] News');
       db.collection('news').find().toArray(function(err, results){

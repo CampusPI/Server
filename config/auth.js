@@ -7,6 +7,10 @@ module.exports = {
   },
   travelogue: {
     hostname: 'localhost',
-    port: 8080
+    port: 8080,
+    urls: {
+        failureRedirect: '/api/web/login',
+        successRedirect: '/'
+    }
   }
 };

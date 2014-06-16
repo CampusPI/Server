@@ -29,8 +29,9 @@ routes.push({path: '/api/tv/videos', method: 'GET', config: controller.tv.videos
  * WEB Routes
  */
 
-routes.push({path: '/api/web/login', method: 'GET', config: controller.web.auth.login});
-routes.push({path: '/api/web/auth/google/return', method: 'GET', config: controller.web.auth.callback});
+routes.push({path: '/api/web/login', method: 'GET', config: controller.web.auth.getLogin});
+routes.push({path: '/api/web/login', method: 'POST', config: controller.web.auth.postLogin});
+// routes.push({path: '/api/web/auth/google/return', method: 'GET', config: controller.web.auth.callback});
 routes.push({path: '/api/web/logout', method: 'GET', config: controller.web.auth.logout});
 
 routes.push({path: '/api/web/user', method: 'GET', config: controller.web.user});

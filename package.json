@@ -26,7 +26,9 @@
     "request": "^2.33.0",
     "require-directory": "^1.2.0",
     "travelogue": "~2.0.1",
-    "yar": "~2.2.0"
+    "yar": "~2.2.0",
+    "bcrypt": "~0.7.8",
+    "passport-local": "~1.0.0"
   },
   "devDependencies": {
     "joi": "^3.1.0",

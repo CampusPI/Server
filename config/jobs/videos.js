@@ -36,5 +36,5 @@ module.exports = function(db,schedule) {
 
     getVideos();
 
-    schedule.scheduleJob('* * * * *', getVideos);
+    schedule.scheduleJob('* */24 * * *', getVideos);
 };

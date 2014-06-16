@@ -8,6 +8,7 @@ var controller = require('require-directory')(module, './api'),
 
 routes.push({path: '/', method: 'GET', config: {handler: function (request, reply) {
   var app = require('../package.json');
+  console.log(request.server.plugins);
   reply({
     Name: app.name,
     Version: app.version

@@ -30,7 +30,7 @@ module.exports = function(db,schedule) {
           };
           db.collection('videos').find({videoId: tempVideo.videoId}).toArray(function(err, results){
             if(results.length === 0) {
-              videos.insert(tempVideo);
+              videos.insert(tempVideo, function() {});
             }
           });
         });

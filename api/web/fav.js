@@ -1,5 +1,5 @@
 var getFav = function (request, reply){
-  var db = request.server.plugins['hapi-mongodb'].db;
+  var db = request.server.plugins.mongodb.db;
 
   //params:user_id
   db.collection('favorites').find().toArray(function(err, results){
@@ -8,7 +8,7 @@ var getFav = function (request, reply){
 };
 
 var postFav = function (request, reply){
-  var db = request.server.plugins['hapi-mongodb'].db;
+  var db = request.server.plugins.mongodb.db;
 
   //params:video_id, user_id
   db.collection('favorites').find().toArray(function(err, results){

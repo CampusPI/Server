@@ -16,9 +16,12 @@ module.exports = function(db,schedule) {
           weather.insert({
             temp: parseInt(body.current_observation.temp_c,10),
             state: body.current_observation.icon
+          }, function(err) {
+            if (!err) {
+              console.log('[Job] Weather');
+            }
           });
         });
-        console.log('[Job] Weather');
       }
     });
   };

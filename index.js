@@ -4,9 +4,10 @@ var server = new Hapi.Server(port, { cors: true });
 var routes = require('./config/routes');
 
 // Jobs for updating the database with external API's
-require('./config/jobs');
-
-require('./config/plugins')(server);
+require('./config/plugins')(server, function() {
+  console.log('[Plugins] everything´s ready!');
+  require('./config/jobs')(server);
+});
 
 if (!module.parent) {
   server.start(function() {

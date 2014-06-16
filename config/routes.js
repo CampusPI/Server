@@ -31,10 +31,12 @@ routes.push({path: '/api/tv/videos', method: 'GET', config: controller.tv.videos
 
 routes.push({path: '/api/web/login', method: 'GET', config: controller.web.auth.getLogin});
 routes.push({path: '/api/web/login', method: 'POST', config: controller.web.auth.postLogin});
-// routes.push({path: '/api/web/auth/google/return', method: 'GET', config: controller.web.auth.callback});
 routes.push({path: '/api/web/logout', method: 'GET', config: controller.web.auth.logout});
 
+routes.push({path: '/api/web/signup', method: 'GET', config: controller.web.signup});
+
 routes.push({path: '/api/web/user', method: 'GET', config: controller.web.user});
+routes.push({path: '/api/web/users', method: 'POST', config: controller.web.users.post});
 
 routes.push({path: '/api/web/videos', method: 'GET', config: controller.web.videos});
 routes.push({path: '/api/web/video/{id}', method: 'GET', config: controller.web.video});

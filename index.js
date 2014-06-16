@@ -7,7 +7,6 @@ var routes = require('./config/routes');
 //require('./config/jobs');
 
 require('./config/plugins')(server);
-require('./config/passport')(server);
 
 if (!module.parent) {
   server.start(function() {

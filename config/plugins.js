@@ -1,33 +1,14 @@
-var configDB = require('./db');
-var configAuth = require('./auth');
+var config = require('./config');
 
 module.exports = function(server) {
 
-  server.pack.require('hapi-mongodb', configDB, function(err) {
+  server.pack.require(config, function(err) {
     if (err) {
       console.error(err);
       throw err;
     }
-  });
-
-  server.pack.require(configAuth, function(err) {
-    if (err) {
-      console.error(err);
-      throw err;
-    }
-  });
-
-
-  var options = {
-    subscribers: {
-      'console': ['ops', 'request', 'log', 'error']
-    }
-  };
-
-  server.pack.require('good', options, function (err) {
-    if (err) {
-      console.error(err);
-      throw err;
+    else {
+      require('./passport')(server);
     }
   });
 

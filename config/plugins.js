@@ -2,7 +2,7 @@ var config = require('./db');
 
 var options = {
     subscribers: {
-      'console': ['ops', 'request', 'log', 'error']
+      'console': ['request', 'log', 'error']
     }
   };
 
@@ -16,6 +16,9 @@ module.exports = function(server, next) {
     {
       plugin: require('good'),
       options: options,
+    },
+    {
+      plugin: require('bell')
     }
   ],function (err) {
     if (err) {

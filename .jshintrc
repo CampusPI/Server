@@ -13,6 +13,6 @@
   "undef": true,
   "unused": true,
   "trailing": true,
-  loopfunc: true,
+  "loopfunc": true,
   "smarttabs": true
 }

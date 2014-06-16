@@ -7,3 +7,4 @@ var getWeather = function (request, reply){
 };
 
 module.exports.handler = getWeather;
+module.exports.auth = 'google';

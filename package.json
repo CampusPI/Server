@@ -19,7 +19,6 @@
     "hoek": "^2.3.0",
     "mongodb": "^1.4.6",
     "node-schedule": "^0.1.13",
-    "request": "^2.33.0",
     "require-directory": "^1.2.0",
     "superagent": "^0.18.0"
   },

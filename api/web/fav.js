@@ -16,5 +16,11 @@ var postFav = function (request, reply){
   });
 };
 
-module.exports.get = {handler:getFav};
-module.exports.post = {handler:postFav};
+module.exports.get = {
+  handler:getFav,
+  auth: 'bearer'
+};
+module.exports.post = {
+  handler:postFav,
+  auth: 'bearer'
+};

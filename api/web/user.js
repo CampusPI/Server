@@ -1,5 +1,6 @@
-var getVideo = function (request, reply){
-  reply(request.auth);
+var getUser = function (request, reply){
+  reply(request.auth.credentials);
 };
 
-module.exports.handler = getVideo;
+module.exports.handler = getUser;
+module.exports.auth = 'bearer';

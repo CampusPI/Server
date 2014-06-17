@@ -1,5 +1,9 @@
 var getUser = function (request, reply){
-  reply(request.auth.credentials);
+  var db = request.server.plugins.mongodb.db;
+
+  db.collection('users').find({id: request.auth.credentials.id}).toArray(function(err, results){
+    reply(results[0]);
+  });
 };
 
 module.exports.handler = getUser;

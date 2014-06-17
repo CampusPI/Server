@@ -23,6 +23,7 @@ routes.push({path: '/api/tv/weather', method: 'GET', config: controller.tv.weath
 routes.push({path: '/api/tv/broadcast', method: 'GET', config: controller.tv.broadcast});
 routes.push({path: '/api/tv/content', method: 'GET', config: controller.tv.content});
 routes.push({path: '/api/tv/videos', method: 'GET', config: controller.tv.videos});
+routes.push({path: '/api/tv/news', method: 'GET', config: controller.tv.news});
 
 /*
  * WEB Routes

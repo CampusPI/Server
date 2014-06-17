@@ -18,8 +18,11 @@ module.exports = function(server, next) {
       options: options,
     },
     {
-      plugin: require('bell')
-    }
+      plugin: require('./plugins/bearer'),
+    },
+    //{
+    //  plugin: require('bell')
+    //}
   ],function (err) {
     if (err) {
       console.error(err);

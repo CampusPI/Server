@@ -33,5 +33,9 @@ routes.push({path: '/api/web/video/{id}', method: 'GET', config: controller.web.
 routes.push({path: '/api/web/favorites', method: 'GET', config: controller.web.fav.get});
 routes.push({path: '/api/web/favorites', method: 'POST', config: controller.web.fav.post});
 
+routes.push({path: '/api/web/users', method: 'GET', config: controller.web.user});
+
+routes.push({path: '/api/web/login', method: 'GET', config: controller.web.login});
+
 
 module.exports = routes;

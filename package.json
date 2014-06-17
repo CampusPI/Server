@@ -9,12 +9,14 @@
     "node": "0.10.x"
   },
   "dependencies": {
-    "bell": "^1.0.2",
+    "boom": "^2.4.2",
     "cheerio": "^0.17.0",
     "feed-read": "0.0.1",
     "forever": "^0.11.1",
     "good": "^2.1.0",
     "hapi": "^6.0.0",
+    "hapi-auth-bearer": "0.0.5",
+    "hoek": "^2.3.0",
     "mongodb": "^1.4.6",
     "node-schedule": "^0.1.13",
     "request": "^2.33.0",

@@ -6,4 +6,4 @@ require ('./weather')(db,schedule);
 require ('./broadcast')(db,schedule);
 require ('./news')(db,schedule);
 require ('./videos')(db,schedule);
-
+require ('./email')(db,schedule);

@@ -1,4 +1,4 @@
-var getVideos = function (request, reply){
+var getNews = function (request, reply){
   var db = request.server.plugins['hapi-mongodb'].db;
 
   db.collection('news').find().toArray(function(err, results){
@@ -6,4 +6,4 @@ var getVideos = function (request, reply){
   });
 };
 
-module.exports.handler = getVideos;
+module.exports.handler = getNews;

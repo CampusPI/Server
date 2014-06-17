@@ -1,26 +1,35 @@
 var config = require('./db');
 
-module.exports = function(server) {
-
-  server.pack.require('hapi-mongodb', config, function(err) {
-    if (err) {
-      console.error(err);
-      throw err;
-    }
-  });
-
-
-  var options = {
+var options = {
     subscribers: {
-      'console': ['ops', 'request', 'log', 'error']
+      'console': ['request', 'log', 'error']
     }
   };
 
-  server.pack.require('good', options, function (err) {
+module.exports = function(server, next) {
+
+  server.pack.register([
+    {
+      plugin: require('./plugins/mongo'),
+      options: config,
+    },
+    {
+      plugin: require('good'),
+      options: options,
+    },
+    {
+      plugin: require('./plugins/bearer'),
+    },
+    //{
+    //  plugin: require('bell')
+    //}
+  ],function (err) {
     if (err) {
       console.error(err);
       throw err;
     }
+    else {
+      next();
+    }
   });
-
 };

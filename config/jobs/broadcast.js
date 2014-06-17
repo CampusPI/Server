@@ -13,13 +13,14 @@ module.exports = function(db,schedule) {
   var getBroadcast = function() {
     req('http://hagreve.com/api/v2/strikes', function(error, response, body){
       if (!error && response.statusCode === 200){
-        broadcast.insert(JSON.parse(body));
-        console.log('[Job] Broadcast');
+        broadcast.insert(JSON.parse(body), function(err) {
+          if (!err) {
+            console.log('[Job] Broadcast');
+          }
+        });
       }
     });
   };
-
-  getBroadcast();
 
   schedule.scheduleJob('* */12 * * *', getBroadcast);
 };

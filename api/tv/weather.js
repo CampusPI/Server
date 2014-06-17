@@ -1,5 +1,5 @@
 var getWeather = function (request, reply){
-  var db = request.server.plugins['hapi-mongodb'].db;
+  var db = request.server.plugins.mongodb.db;
 
   db.collection('weather').find().toArray(function(err, items) {
     reply(items[0]);

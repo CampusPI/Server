@@ -1,5 +1,5 @@
 var getVideos = function (request, reply){
-  var db = request.server.plugins['hapi-mongodb'].db;
+  var db = request.server.plugins.mongodb.db;
 
   db.collection('videos').find().toArray(function(err, results){
     reply(results);
@@ -7,3 +7,4 @@ var getVideos = function (request, reply){
 };
 
 module.exports.handler = getVideos;
+module.exports.auth = 'bearer';

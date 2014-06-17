@@ -12,7 +12,6 @@ module.exports = function(db,schedule) {
   var getNews = function() {
     feed('http://www.fct.unl.pt/noticias/rss.xml', function (err, articles) {
       if (err) {throw err;}
-      console.log('[Job] News');
       db.collection('news').find().toArray(function(err, results){
         for (var i = 0; i < articles.length; i++) {
           var $ = cheerio.load(articles[i].content);
@@ -29,9 +28,10 @@ module.exports = function(db,schedule) {
             }
           }
           if(exists === false) {
-            news.insert(tempVar);
+            news.insert(tempVar, function() {});
           }
         }
+        console.log('[Job] News');
       });
     });
   };

@@ -8,5 +8,5 @@ module.exports = function(server) {
   require ('./strikes')(db,schedule);
   require ('./news')(db,schedule);
   require ('./videos')(db,schedule);
-  require ('./email')(db,schedule);
+  require ('./food')(db,schedule);
 };

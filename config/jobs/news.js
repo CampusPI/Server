@@ -12,7 +12,7 @@ module.exports = function(db,schedule) {
   var getNews = function() {
     feed('http://www.fct.unl.pt/noticias/rss.xml', function (err, articles) {
       if (err) {throw err;}
-      db.collection('news').find().toArray(function(err, results){
+      news.find().toArray(function(err, results){
         for (var i = 0; i < articles.length; i++) {
           var $ = cheerio.load(articles[i].content);
           var tempVar = {

@@ -57,7 +57,7 @@ module.exports = function(db,schedule) {
                     }
                     else {
                       parse(name);
-                      console.log('[Job] Email');
+                      console.log('[Job] Food');
                     }
                   });
                 });
@@ -105,6 +105,7 @@ module.exports = function(db,schedule) {
       if (line.indexOf('______') !== -1 && !check) {
         check = true;
         food.remove({}, function() {
+          require ('./garbage')(db,schedule);
           for (var i = 0; i < count; i++) {
             var menu = buff[i];
             fix(menu);

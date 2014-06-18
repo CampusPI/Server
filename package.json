@@ -15,7 +15,6 @@
     "forever": "^0.11.1",
     "good": "^2.1.0",
     "hapi": "^6.0.0",
-    "hapi-auth-bearer": "0.0.5",
     "hoek": "^2.3.0",
     "mongodb": "^1.4.6",
     "node-schedule": "^0.1.13",

@@ -21,7 +21,8 @@
     "node-schedule": "^0.1.13",
     "require-directory": "^1.2.0",
     "superagent": "^0.18.0",
-    "mimelib": "~0.2.16"
+    "mimelib": "~0.2.16",
+    "imap": "~0.8.10"
   },
   "scripts": {
     "test": "node index.js& sleep 10; kill $!",

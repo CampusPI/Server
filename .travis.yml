@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - 0.10
+- 0.10
 
 services: mongodb
 
@@ -24,5 +24,7 @@ notifications:
 
 env:
   global:
-  - secure: LD0/dwfuSdPhsIolBti8DOesHb4hMFWCgaTGbHSffYN+QfWHNbFmn44AKzrVUa50JjBn25CHWrEaU9vdLxNy08oM6sYbUIq+1V4f8fnKMdWMnZeyZkzDsG/CkS4irXLEBFBBMQ64W6oottqR1JH9B6K+GfOi6h96Ldogm+MPCjk=
-  - secure: PofhlULQvQXXElq6Np2BtgopdEfRGbdpGV3eED47mXaFghhr6mgwbU5mgJ9goSmR5poCwPFomAsYKZZWEgESNICQ8s/jK0IR8jRqNpyMMnpHGLX/8LcJZUwUr0Epwqmh5BiLmbbeTwjFM3E46Ya9tg/iWLVe6fOAHFM1Hc0ZhVM=
+    - secure: LD0/dwfuSdPhsIolBti8DOesHb4hMFWCgaTGbHSffYN+QfWHNbFmn44AKzrVUa50JjBn25CHWrEaU9vdLxNy08oM6sYbUIq+1V4f8fnKMdWMnZeyZkzDsG/CkS4irXLEBFBBMQ64W6oottqR1JH9B6K+GfOi6h96Ldogm+MPCjk=
+    - secure: PofhlULQvQXXElq6Np2BtgopdEfRGbdpGV3eED47mXaFghhr6mgwbU5mgJ9goSmR5poCwPFomAsYKZZWEgESNICQ8s/jK0IR8jRqNpyMMnpHGLX/8LcJZUwUr0Epwqmh5BiLmbbeTwjFM3E46Ya9tg/iWLVe6fOAHFM1Hc0ZhVM=
+    - secure: GguaGM/DxKcKZ3DNhXBPwFnuTmyVSnwuUcKn4htmt0cLBbNaUtkcJeRlIp/agU0AvLQ85ZcpNlGdH+q2Ld99mUQTEF+7bI/Wpoz+2sm8mjOhbafoV6+TxyHA28RkmfQQOE/PBgJlvaVjKbB++9nZV/iUlgNjxgdn6INuE0TYIN0=
+    - secure: Ank+DwuKHSKL0ipQ3AxuOgj8Pl+GKRDC2cZBvUBHwGIsWZEDlMD9YrMJ1QYxNrMXCGmSVy+figpqmp3kLpLKsFwBg9/jv4I4ED1vcBQfDg19HqmJ5Xh9zUjpp4UnjsI3WJcEL5Vauu3Ijjes7ynm4gDAVeeKTM4i4IpRLS6IwxA=

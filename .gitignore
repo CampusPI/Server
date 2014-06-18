@@ -4,3 +4,4 @@ node_modules/
 config/imap.js
 mocks.js
 logs
+test-*.txt

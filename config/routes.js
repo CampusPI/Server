@@ -39,7 +39,7 @@ routes.push({path: '/api/web/user', method: 'GET', config: controller.web.user})
 
 
 /*
- * Post cenas
+ * Development Routes
  */
 
 routes.push({path: '/api/dev/schedule', method: 'POST', config: controller.dev.schedule});

@@ -10,7 +10,7 @@ module.exports = function(db,schedule) {
   var strikes = db.collection('strikes');
 
   var getStrikes = function() {
-    get('http://hagreve.com/api/v2/allstrikes', function(res){
+    get('http://hagreve.com/api/v2/strikes', function(res){
       if (res.statusCode === 200){
         var body = res.body;
         var data = '';

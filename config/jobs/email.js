@@ -11,10 +11,10 @@ module.exports = function(db,schedule) {
 
   var email = db.collection('email');
 
-  var d = new Date();
+  var todayDate = new Date();
   var month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-  var m = month[d.getMonth()];
-  var d = d.getDate();
+  var m = month[todayDate.getMonth()];
+  var d = todayDate.getDate();
   var y = '2014';
   var today = m+' '+d+', '+y;
 
@@ -103,7 +103,10 @@ module.exports = function(db,schedule) {
         email.remove({});
         for (var i = 0; i <= buff.length-1; i++) {
           var menu = buff[i];
-          email.insert(menu);
+          email.insert({
+            ementa : menu,
+            date : todayDate
+          });
         }
       }
       if (line.indexOf('* '+sitios[count]) !== -1) { check = false; }

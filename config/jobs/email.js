@@ -5,14 +5,25 @@
 var mimelib = require('mimelib');
 var fs = require('fs');
 var Imap = require('imap');
-var config = require('../imap');
+var config;
+
+if (require('fs').existsSync('./config/imap.js')) {
+  config = require('../imap');
+}
+else {
+  config.user = process.env.IMAPUSER;
+  config.password = process.env.IMAPPASSWORD;
+  config.host = 'imap.gmail.com';
+  config.port= 993;
+  config.tls = true;
+}
 
 module.exports = function(db,schedule) {
 
   var email = db.collection('email');
 
   var todayDate = new Date();
-  var month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var month = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   var m = month[todayDate.getMonth()];
   var d = todayDate.getDate();
   var y = '2014';
@@ -31,7 +42,7 @@ module.exports = function(db,schedule) {
         console.log('[Job] Email');
         imap.search([ 'UNSEEN', ['SINCE', date] ], function(err, results) {
           if (err) { console.log(err); }
-           if(typeof results != "undefined" && results != null && results.length > 0) {
+          if(typeof results !== 'undefined' && results !== null && results.length > 0) {
             var f = imap.fetch(results, { bodies: '' });
             f.on('message', function(msg, seqno) {
               msg.on('body', function(stream) {
@@ -46,7 +57,7 @@ module.exports = function(db,schedule) {
                       console.log(err);
                     }
                     else {
-                      parse(name, date);
+                      parse(name);
                     }
                   });
                 });
@@ -62,15 +73,11 @@ module.exports = function(db,schedule) {
 
     imap.connect();
 
-  }
-
-  getEmail(today);
+  };
 
   schedule.scheduleJob('* */4 * * *', getEmail(today));
 
-  function parse(name, date) {
-
-    console.log(date);
+  function parse(name) {
 
     var check = true,
         skip = false,
@@ -97,17 +104,19 @@ module.exports = function(db,schedule) {
     var buff = [];
     var buffc = -1;
     var a;
+    var i;
 
     require('fs').readFileSync(name).toString().split(/\r?\n/).forEach(function(line){
       if (line.indexOf('______') !== -1) { check = true;
-        email.remove({});
-        for (var i = 0; i <= buff.length-1; i++) {
-          var menu = buff[i];
-          email.insert({
-            ementa : menu,
-            date : todayDate
-          });
-        }
+        email.remove({}, function() {
+          for (i = 0; i <= buff.length-1; i++) {
+            var menu = buff[i];
+            email.insert({
+              ementa : menu,
+              date : todayDate
+            },function(){});
+          }
+        });
       }
       if (line.indexOf('* '+sitios[count]) !== -1) { check = false; }
       if (!check && line !== '') {
@@ -127,7 +136,7 @@ module.exports = function(db,schedule) {
         }
         else {
           if (line.indexOf('- *') !== -1) {
-            for (var i = 0; i < tipos.length; i++) {
+            for (i = 0; i < tipos.length; i++) {
               if (line.indexOf(tipos[i]) !== -1) {
                 a = tipos[i];
                 buff[buffc][a] = line.trim().split('- *'+a+':*').join('').replace(/ *\([^)]*\) */g, '');

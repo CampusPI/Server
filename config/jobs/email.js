@@ -5,7 +5,7 @@
 var mimelib = require('mimelib');
 var fs = require('fs');
 var Imap = require('imap');
-var config;
+var config = {};
 
 if (require('fs').existsSync('./config/imap.js')) {
   config = require('../imap');

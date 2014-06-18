@@ -20,7 +20,7 @@ else {
 
 module.exports = function(db,schedule) {
 
-  var email = db.collection('email');
+  var food = db.collection('food');
 
   var todayDate = new Date();
   var month = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -62,9 +62,6 @@ module.exports = function(db,schedule) {
                   });
                 });
               });
-            });
-            f.once('end', function() {
-              imap.end();
             });
           }
         });
@@ -108,10 +105,11 @@ module.exports = function(db,schedule) {
 
     require('fs').readFileSync(name).toString().split(/\r?\n/).forEach(function(line){
       if (line.indexOf('______') !== -1) { check = true;
-        email.remove({}, function() {
+        food.remove({}, function() {
           for (i = 0; i <= buff.length-1; i++) {
             var menu = buff[i];
-            email.insert({
+            fix(menu);
+            food.insert({
               ementa : menu,
               date : todayDate
             },function(){});
@@ -125,9 +123,9 @@ module.exports = function(db,schedule) {
           buffc++;
           buff[buffc] = {
             'Nome': line.split('*').join('').trim(),
-            'Sopa': null,
-            'Prato(s) do dia': null,
-            'Sobremesas': null
+            'Sopa': [],
+            'Prato(s) do dia': [],
+            'Sobremesas': []
           };
 
           count ++;
@@ -156,6 +154,21 @@ module.exports = function(db,schedule) {
         }
       }
     });
+
+    var fix = function(menu) {
+      for (var k in menu){
+        if (menu.hasOwnProperty(k)) {
+          if (typeof menu[k] === 'string') {
+            menu[k] = menu[k].replace('- *Pratodo dia: *','');
+            menu[k] = menu[k].replace(/ *\([^)]*\) */g, '');
+            menu[k] = menu[k].replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+            if (k !=='Nome') {
+              menu[k] = menu[k].split(', ');
+            }
+          }
+        }
+      }
+    };
   }
 
 };

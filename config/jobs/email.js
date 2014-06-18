@@ -39,7 +39,6 @@ module.exports = function(db,schedule) {
     imap.once('ready', function() {
       openInbox(function(err) {
         if (err) { console.log(err); }
-        console.log('[Job] Email');
         imap.search([ 'UNSEEN', ['SINCE', date] ], function(err, results) {
           if (err) { console.log(err); }
           if(typeof results !== 'undefined' && results !== null && results.length > 0) {
@@ -58,6 +57,7 @@ module.exports = function(db,schedule) {
                     }
                     else {
                       parse(name);
+                      console.log('[Job] Email');
                     }
                   });
                 });
@@ -74,8 +74,7 @@ module.exports = function(db,schedule) {
 
   schedule.scheduleJob('* */4 * * *', getEmail(today));
 
-  function parse(name) {
-
+  function parse(name,cb) {
     var check = true,
         skip = false,
         keep = true,
@@ -101,12 +100,12 @@ module.exports = function(db,schedule) {
     var buff = [];
     var buffc = -1;
     var a;
-    var i;
 
-    require('fs').readFileSync(name).toString().split(/\r?\n/).forEach(function(line){
-      if (line.indexOf('______') !== -1) { check = true;
+    require('fs').readFileSync(name).toString().split(/\r?\n/).every(function(line){
+      if (line.indexOf('______') !== -1 && !check) {
+        check = true;
         food.remove({}, function() {
-          for (i = 0; i <= buff.length-1; i++) {
+          for (var i = 0; i < count; i++) {
             var menu = buff[i];
             fix(menu);
             food.insert({
@@ -114,6 +113,7 @@ module.exports = function(db,schedule) {
               date : todayDate
             },function(){});
           }
+          return false;
         });
       }
       if (line.indexOf('* '+sitios[count]) !== -1) { check = false; }
@@ -134,11 +134,11 @@ module.exports = function(db,schedule) {
         }
         else {
           if (line.indexOf('- *') !== -1) {
-            for (i = 0; i < tipos.length; i++) {
-              if (line.indexOf(tipos[i]) !== -1) {
-                a = tipos[i];
+            for (var j = 0; j < tipos.length; j++) {
+              if (line.indexOf(tipos[j]) !== -1) {
+                a = tipos[j];
                 buff[buffc][a] = line.trim().split('- *'+a+':*').join('').replace(/ *\([^)]*\) */g, '');
-                if (i !== tipos.length-1) {keep = true;}
+                if (j !== tipos.length-1) {keep = true;}
               }
               else {
                 continue;
@@ -153,6 +153,7 @@ module.exports = function(db,schedule) {
           }
         }
       }
+      return true;
     });
 
     var fix = function(menu) {

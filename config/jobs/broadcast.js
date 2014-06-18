@@ -4,22 +4,23 @@
  * http://hagreve.com/api/v2/strikes
  */
 
-var req = require ('request');
+var get = require('superagent').get;
 
 module.exports = function(db,schedule) {
 
   var broadcast = db.collection('broadcast');
 
   var getBroadcast = function() {
-    req('http://hagreve.com/api/v2/strikes', function(error, response, body){
-      if (!error && response.statusCode === 200){
-        broadcast.insert(JSON.parse(body));
-        console.log('[Job] Broadcast');
+    get('http://hagreve.com/api/v2/strikes', function(res){
+      if (res.statusCode === 200){
+        broadcast.insert(res.body, function(err) {
+          if (!err) {
+            console.log('[Job] Broadcast');
+          }
+        });
       }
     });
   };
-
-  getBroadcast();
 
   schedule.scheduleJob('* */12 * * *', getBroadcast);
 };

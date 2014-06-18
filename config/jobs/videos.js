@@ -2,7 +2,7 @@
  * Every 24 hours update videos from the youtube fct channel
  */
 
-var req = require ('request');
+var get = require('superagent').get;
 
 module.exports = function(db,schedule) {
 
@@ -10,9 +10,9 @@ module.exports = function(db,schedule) {
 
   var getVideos = function(){
     var tempVideos = [];
-    req('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PL4DE0AB48695C4E32&key=AIzaSyDH51X1r5h9VeWzOijRsGFGcaozRyeKUnU', function(error, response, body){
-      if (!error && response.statusCode === 200){
-        tempVideos = JSON.parse(body).items;
+    get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PL4DE0AB48695C4E32&key=AIzaSyDH51X1r5h9VeWzOijRsGFGcaozRyeKUnU', function(res){
+      if (res.statusCode === 200){
+        tempVideos = res.body.items;
         console.log('[Job] Videos');
         tempVideos.forEach(function(video) {
           var videoThumbnail;
@@ -30,7 +30,7 @@ module.exports = function(db,schedule) {
           };
           db.collection('videos').find({videoId: tempVideo.videoId}).toArray(function(err, results){
             if(results.length === 0) {
-              videos.insert(tempVideo);
+              videos.insert(tempVideo, function() {});
             }
           });
         });

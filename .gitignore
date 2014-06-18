@@ -2,5 +2,5 @@ node_modules/
 .DS_Store
 .idea/
 config/imap.js
-config/google.js
+mocks.js
 logs

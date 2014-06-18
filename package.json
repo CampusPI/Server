@@ -9,17 +9,18 @@
     "node": "0.10.x"
   },
   "dependencies": {
+    "boom": "^2.4.2",
     "cheerio": "^0.17.0",
     "feed-read": "0.0.1",
     "forever": "^0.11.1",
-    "good": "^2.0.0",
-    "hapi": "^4.1.0",
-    "hapi-mongodb": "^2.1.0",
-    "mongojs": "^0.13.0",
+    "good": "^2.1.0",
+    "hapi": "^6.0.0",
+    "hapi-auth-bearer": "0.0.5",
+    "hoek": "^2.3.0",
+    "mongodb": "^1.4.6",
     "node-schedule": "^0.1.13",
-    "redis": "0.10.1",
-    "request": "^2.33.0",
-    "require-directory": "^1.2.0"
+    "require-directory": "^1.2.0",
+    "superagent": "^0.18.0"
   },
   "scripts": {
     "test": "node index.js& sleep 10; kill $!",

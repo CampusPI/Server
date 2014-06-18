@@ -38,4 +38,12 @@ routes.push({path: '/api/web/favorites', method: 'POST', config: controller.web.
 routes.push({path: '/api/web/user', method: 'GET', config: controller.web.user});
 
 
+/*
+ * Post cenas
+ */
+
+routes.push({path: '/api/dev/schedule', method: 'POST', config: controller.dev.schedule});
+
+
+
 module.exports = routes;

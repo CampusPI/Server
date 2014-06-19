@@ -8,10 +8,9 @@ module.exports = function(db) {
 
   var insertTransports = function() {
     transports.remove({}, function (err) {
-      if(!err){
+      if(!err) {
         transports.insert(
-          [
-            {
+          [{
             fertagus : {
               'Lisboa' : [
                 '05:49',
@@ -87,7 +86,8 @@ module.exports = function(db) {
                 '22:29',
                 '22:59',
                 '23:59',
-                '00:59' ],
+                '00:59'
+              ],
               'Coina' : [
                 '06:30',
                 '07:20',
@@ -139,7 +139,8 @@ module.exports = function(db) {
                 '21:40',
                 '22:30',
                 '23:30',
-                '01:45' ],
+                '01:45'
+              ],
               'Setúbal' : [
                 '06:00',
                 '07:00',
@@ -163,10 +164,11 @@ module.exports = function(db) {
                 '22:00',
                 '23:00',
                 '00:15',
-                '01:00' ]
-              }
-            },
-            {
+                '01:00'
+              ]
+            }
+          },
+          {
             tst : {
               '198 - Universidade' : [
                 '07:50',
@@ -178,7 +180,8 @@ module.exports = function(db) {
                 '17:00',
                 '18:10',
                 '19:10',
-                '00:45' ],
+                '00:45'
+              ],
               '198 - P. Pires (Cucena)' : [
                 '07:00',
                 '07:45',
@@ -188,7 +191,8 @@ module.exports = function(db) {
                 '14:00',
                 '16:00',
                 '18:10',
-                '19:10', ],
+                '19:10',
+              ],
               '153 - Costa Caparica' : [
                 '05:45',
                 '06:50',
@@ -199,7 +203,8 @@ module.exports = function(db) {
                 '21:50',
                 '22:40',
                 '23:25',
-                '00:05' ],
+                '00:05'
+              ],
               '153 - Praça de Espanha' : [
                 '07:25',
                 '16:25',
@@ -209,7 +214,8 @@ module.exports = function(db) {
                 '22:50',
                 '23:25',
                 '00:05',
-                '00:45' ],
+                '00:45'
+              ],
               '161 - Costa Caparica' : [
                 '06:10',
                 '06:25',
@@ -249,7 +255,8 @@ module.exports = function(db) {
                 '19:30',
                 '19:50',
                 '20:30',
-                '21:25' ],
+                '21:25'
+              ],
               '161 - Praça do Areeiro' : [
                 '06:55',
                 '07:30',
@@ -288,10 +295,11 @@ module.exports = function(db) {
                 '20:20',
                 '20:40',
                 '21:20',
-                '22:10' ]
-              }
-            },
-            {
+                '22:10'
+              ]
+            }
+          },
+          {
             mts : {
               'Cacilhas' : [
                 '05:17',
@@ -389,10 +397,11 @@ module.exports = function(db) {
                 '23:57',
                 '00:27',
                 '00:57',
-                '01:27' ]
-              }
-            },
-            {
+                '01:27'
+              ]
+            }
+          },
+          {
             transtejo : {
               'Cacilhas - Cais do Sodré' : [
                 '05:20',
@@ -477,13 +486,17 @@ module.exports = function(db) {
                 '23:33',
                 '00:05',
                 '00:40',
-                '01:20' ]
-              }
+                '01:20'
+              ]
             }
-          ], function (err) {
-          if(!err) console.log('[Job] Transports');
-        });
-      };
+          }
+          ],
+          function (err) {
+            if(!err) {
+              console.log('[Job] Transports');
+            }
+          });
+      }
     });
   };
 

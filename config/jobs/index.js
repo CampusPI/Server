@@ -9,4 +9,5 @@ module.exports = function(server) {
   require ('./news')(db,schedule);
   require ('./videos')(db,schedule);
   require ('./food')(db,schedule);
+  require ('./transports')(db);
 };

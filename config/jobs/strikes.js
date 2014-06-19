@@ -19,7 +19,8 @@ module.exports = function(db,schedule) {
             for (var i = 0; i <= body.length - 1; i++) {
               data = body[i].company.name+', desde '+body[i].start_date+' até '+body[i].end_date+' - '+body[i].description;
               strikes.insert({
-                greve : data
+                type : "Greve",
+                text : data
               }, function(err) {
                 if (err) {
                   console.log('Erro ao adicionar greve: '+err);

@@ -10,4 +10,5 @@ module.exports = function(server) {
   require ('./videos')(db,schedule);
   require ('./food')(db,schedule);
   require ('./transports')(db);
+  require ('./biblio')(db,schedule);
 };

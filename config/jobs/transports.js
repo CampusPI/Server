@@ -11,7 +11,8 @@ module.exports = function(db) {
       if(!err) {
         transports.insert(
           [{
-            fertagus : {
+            type: 'fertagus',
+            content : {
               'Lisboa' : [
                 '05:49',
                 '06:09',
@@ -169,7 +170,8 @@ module.exports = function(db) {
             }
           },
           {
-            tst : {
+            type: 'tst',
+            content : {
               '198 - Universidade' : [
                 '07:50',
                 '08:45',
@@ -182,7 +184,7 @@ module.exports = function(db) {
                 '19:10',
                 '00:45'
               ],
-              '198 - P. Pires (Cucena)' : [
+              '198 - P Pires (Cucena)' : [
                 '07:00',
                 '07:45',
                 '08:55',
@@ -300,7 +302,8 @@ module.exports = function(db) {
             }
           },
           {
-            mts : {
+            type: 'mts',
+            content : {
               'Cacilhas' : [
                 '05:17',
                 '05:37',
@@ -402,7 +405,8 @@ module.exports = function(db) {
             }
           },
           {
-            transtejo : {
+            type: 'transtejo',
+            content : {
               'Cacilhas - Cais do Sodré' : [
                 '05:20',
                 '05:48',
@@ -494,6 +498,9 @@ module.exports = function(db) {
           function (err) {
             if(!err) {
               console.log('[Job] Transports');
+            }
+            else {
+              console.log(err);
             }
           });
       }

@@ -1,9 +1,0 @@
-var getContent = function (request, reply){
-  var db = request.server.plugins.mongodb.db;
-
-  db.collection('contents').find().toArray(function(err, results){
-    reply(results);
-  });
-};
-
-module.exports.handler = getContent;

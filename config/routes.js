@@ -24,8 +24,11 @@ routes.push({path: '/api/tv/broadcast', method: 'GET', config: controller.tv.bro
 routes.push({path: '/api/tv/content', method: 'GET', config: controller.tv.content});
 routes.push({path: '/api/tv/videos', method: 'GET', config: controller.tv.videos});
 routes.push({path: '/api/tv/news', method: 'GET', config: controller.tv.news});
+routes.push({path: '/api/tv/biblio', method: 'GET', config: controller.tv.biblio});
 routes.push({path: '/api/tv/schedule', method: 'GET', config: controller.tv.schedule});
 routes.push({path: '/api/tv/strikes', method: 'GET', config: controller.tv.strikes});
+routes.push({path: '/api/tv/currentContent', method: ['GET','POST'], config: controller.tv.currentContent});
+
 
 
 /*

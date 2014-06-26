@@ -48,6 +48,7 @@ routes.push({path: '/api/web/user', method: 'GET', config: controller.web.user})
  */
 
 routes.push({path: '/api/dev/schedule', method: 'POST', config: controller.dev.schedule});
+routes.push({path: '/api/dev/cheats', method: 'GET', config: controller.dev.cheats});
 
 
 

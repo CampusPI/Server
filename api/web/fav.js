@@ -22,6 +22,24 @@ var postFav = function (request, reply){
   );
 };
 
+var removeFav = function(request, reply){
+  var db = request.server.plugins.mongodb.db;
+
+  db.collection('users').update(
+    {id: request.auth.credentials.id},
+    {$pull: {'favs': request.payload.id}},
+    function(err, results){
+      reply(results);
+    }
+  );
+
+  db.collection('users').update(
+    {id: request.auth.credentials.id, },
+
+  );
+};
+
+
 module.exports.get = {
   handler:getFav,
   auth: 'bearer'

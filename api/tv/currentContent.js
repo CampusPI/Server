@@ -1,3 +1,6 @@
+var i = 0;
+
+
 var currentContent = function(request, reply) {
   var db = request.server.plugins.mongodb.db;
   var currentContent = db.collection('currentContent');
@@ -8,14 +11,21 @@ var currentContent = function(request, reply) {
       });
       break;
     case 'post':
-      currentContent.remove({}, function () {
-          currentContent.insert(request.payload, function(){
-            reply({
-              error: null,
-              success: true
-            });
+      if(i===0){
+        currentContent.remove({}, function(){});
+      }
+        var temp = request.payload;
+        temp.count = i;
+        currentContent.insert(temp, function(){
+          reply({
+            error: null,
+            success: true
           });
-      });
+          i++;
+          currentContent.remove({count: i-20}, function(){
+
+          })
+        });
       break;
     default:
       reply({

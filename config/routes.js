@@ -27,7 +27,7 @@ routes.push({path: '/api/tv/schedule', method: 'GET', config: controller.tv.sche
 routes.push({path: '/api/tv/strikes', method: 'GET', config: controller.tv.strikes});
 routes.push({path: '/api/tv/sidebar', method: 'GET', config: controller.tv.sidebar});
 routes.push({path: '/api/tv/currentContent', method: ['GET','POST'], config: controller.tv.currentContent});
-routes.push({path: '/api/tv/lastContent', method: ['GET','POST'], config: controller.tv.lastContent});
+routes.push({path: '/api/tv/lastContent', method: 'GET', config: controller.tv.lastContent});
 
 
 

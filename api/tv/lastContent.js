@@ -9,22 +9,6 @@ var lastContent = function(request, reply) {
         reply(results);
       });
       break;
-    case 'post':
-      if(i===0){
-                lastContent.remove({}, function(){});
-              }
-              var temp = request.payload;
-              temp.count = i;
-              lastContent.insert(temp, function(){
-                  reply({
-                      error: null,
-                      success: true
-        });
-
-                i++;
-                lastContent.remove({count: i-20}, function(){})
-      });
-      break;
     default:
       reply({
         error: 'invalid operation',

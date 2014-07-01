@@ -32,11 +32,6 @@ var removeFav = function(request, reply){
       reply(results);
     }
   );
-
-  db.collection('users').update(
-    {id: request.auth.credentials.id, },
-
-  );
 };
 
 
@@ -46,5 +41,9 @@ module.exports.get = {
 };
 module.exports.post = {
   handler:postFav,
+  auth: 'bearer'
+};
+module.exports.delete = {
+  handler:removeFav,
   auth: 'bearer'
 };

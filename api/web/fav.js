@@ -1,19 +1,25 @@
 var getFav = function (request, reply){
   var db = request.server.plugins.mongodb.db;
+  var ob = request.server.plugins.mongodb.ObjectID;
 
-  //params:user_id
-  db.collection('favorites').find().toArray(function(err, results){
-    reply(results);
+  db.collection('users').find({id: request.auth.credentials.id}).toArray(function(err, results){
+    var favs = results[0].favs.map(function(x) { return ob(x); });
+    db.collection('videos').find({'_id': { $in: favs}}).toArray(function(err, results){
+      reply(results);
+    });
   });
 };
 
 var postFav = function (request, reply){
   var db = request.server.plugins.mongodb.db;
 
-  //params:video_id, user_id
-  db.collection('favorites').find().toArray(function(err, results){
-    reply(results);
-  });
+  db.collection('users').update(
+    {id: request.auth.credentials.id},
+    {$push: {'favs': request.payload.videoid}},
+    function(err, results){
+      reply(results);
+    }
+  );
 };
 
 module.exports.get = {

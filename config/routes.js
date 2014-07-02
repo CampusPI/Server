@@ -38,6 +38,7 @@ routes.push({path: '/api/web/videos', method: 'GET', config: controller.web.vide
 routes.push({path: '/api/web/video/{id}', method: 'GET', config: controller.web.video});
 routes.push({path: '/api/web/favorites', method: 'GET', config: controller.web.fav.get});
 routes.push({path: '/api/web/favorites', method: 'POST', config: controller.web.fav.post});
+routes.push({path: '/api/web/favorites', method: 'DELETE', config: controller.web.fav.delete});
 
 //Retornar user logado
 routes.push({path: '/api/web/user', method: 'GET', config: controller.web.user});

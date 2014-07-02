@@ -30,7 +30,7 @@ var postFav = function (request, reply){
 
   db.collection('users').update(
     {id: request.auth.credentials.id},
-    {$push: {'favs': request.payload.videoid}},
+    {$push: {'favs': request.payload.id}},
     function(err, results){
       reply(results);
     }

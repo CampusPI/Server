@@ -25,8 +25,10 @@ routes.push({path: '/api/tv/news', method: 'GET', config: controller.tv.news});
 routes.push({path: '/api/tv/biblio', method: 'GET', config: controller.tv.biblio});
 routes.push({path: '/api/tv/schedule', method: 'GET', config: controller.tv.schedule});
 routes.push({path: '/api/tv/strikes', method: 'GET', config: controller.tv.strikes});
+routes.push({path: '/api/tv/broadcasts', method: 'GET', config: controller.tv.broadcasts});
 routes.push({path: '/api/tv/sidebar', method: 'GET', config: controller.tv.sidebar});
 routes.push({path: '/api/tv/currentContent', method: ['GET','POST'], config: controller.tv.currentContent});
+routes.push({path: '/api/tv/lastContent', method: 'GET', config: controller.tv.lastContent});
 
 
 
@@ -35,10 +37,13 @@ routes.push({path: '/api/tv/currentContent', method: ['GET','POST'], config: con
  */
 
 routes.push({path: '/api/web/videos', method: 'GET', config: controller.web.videos});
+routes.push({path: '/api/web/news', method: 'GET', config: controller.web.news});
+routes.push({path: '/api/web/biblio', method: 'GET', config: controller.web.biblio});
 routes.push({path: '/api/web/video/{id}', method: 'GET', config: controller.web.video});
 routes.push({path: '/api/web/favorites', method: 'GET', config: controller.web.fav.get});
 routes.push({path: '/api/web/favorites', method: 'POST', config: controller.web.fav.post});
 routes.push({path: '/api/web/favorites', method: 'DELETE', config: controller.web.fav.delete});
+routes.push({path: '/api/web/content/{id}', method: 'GET', config: controller.web.content});
 
 //Retornar user logado
 routes.push({path: '/api/web/user', method: 'GET', config: controller.web.user});
@@ -49,6 +54,7 @@ routes.push({path: '/api/web/user', method: 'GET', config: controller.web.user})
  */
 
 routes.push({path: '/api/dev/schedule', method: 'POST', config: controller.dev.schedule});
+routes.push({path: '/api/dev/broadcast', method: 'POST', config: controller.dev.broadcast});
 routes.push({path: '/api/dev/cheats', method: 'GET', config: controller.dev.cheats});
 
 

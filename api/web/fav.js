@@ -3,7 +3,8 @@ var getFav = function (request, reply){
   var ob = request.server.plugins.mongodb.ObjectID;
 
   db.collection('users').find({id: request.auth.credentials.id}).toArray(function(err, results){
-    var favs = results[0].favs.map(function(x) { return ob(x); });
+    var favs = [];
+    if(results[0].favs) { favs = results[0].favs.map(function(x) { return ob(x); }); }
     db.collection('videos').find({'_id': { $in: favs}}).toArray(function(err, results){
       reply(results);
     });

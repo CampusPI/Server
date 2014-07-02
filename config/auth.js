@@ -18,12 +18,12 @@ module.exports = function(server) {
       //Confirmar se o token é válido
       get('https://www.googleapis.com/oauth2/v1/tokeninfo?access_token='+token, function(res){
         if (res.body.issued_to !== id) {
-          return callback('nope',null);
+          return callback(null,null);
         }
         //Confirmar hd
         get('https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token='+token, function(res){
           if (res.body.hd !== hd) {
-            return callback('nope',null);
+            return callback(null,null);
           }
           //Encontrar o user que corresponde ao ID do token
           var db = server.plugins.mongodb.db;

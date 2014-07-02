@@ -7,4 +7,3 @@ var getVideos = function (request, reply){
 };
 
 module.exports.handler = getVideos;
-module.exports.auth = 'bearer';

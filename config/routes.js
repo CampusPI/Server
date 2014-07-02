@@ -39,6 +39,7 @@ routes.push({path: '/api/tv/lastContent', method: 'GET', config: controller.tv.l
 routes.push({path: '/api/web/videos', method: 'GET', config: controller.web.videos});
 routes.push({path: '/api/web/news', method: 'GET', config: controller.web.news});
 routes.push({path: '/api/web/biblio', method: 'GET', config: controller.web.biblio});
+routes.push({path: '/api/web/upload', method: 'POST', config: controller.web.upload.post});
 routes.push({path: '/api/web/video/{id}', method: 'GET', config: controller.web.video});
 routes.push({path: '/api/web/favorites', method: 'GET', config: controller.web.fav.get});
 routes.push({path: '/api/web/favorites', method: 'POST', config: controller.web.fav.post});

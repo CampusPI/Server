@@ -39,10 +39,10 @@ var postFav = function (request, reply){
 
 var removeFav = function(request, reply){
   var db = request.server.plugins.mongodb.db;
-
+  var a = JSON.parse(request.payload);
   db.collection('users').update(
     {id: request.auth.credentials.id},
-    {$pull: {'favs': request.payload.id}},
+    {$pull: {'favs': a.id}},
     function(err, results){
       reply(results);
     }

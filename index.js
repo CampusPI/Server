@@ -6,7 +6,10 @@ var server = new Hapi.Server(port, { cors: true });
 require('./config/plugins')(server, function() {
   console.log('[Plugins] Ready to roll');
 
-  require('./config/jobs')(server);
+  require('./config/jobs/cleanDB')(server, function(){
+    require('./config/jobs')(server);
+  });
+
   require('./config/auth')(server);
 
   server.route(require('./config/routes'));

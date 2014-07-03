@@ -25,7 +25,12 @@ var upload = function (request, reply){
         db.collection('videos').find({videoId: tempVideo.videoId}).toArray(function(err, results){
           if(results.length === 0) {
             console.log('cenas');
-            db.collection('videos').insert(tempVideo, function() {});
+            db.collection('videos').insert(tempVideo, function() {
+              reply({message: 'Success'});
+            });
+          }
+          else {
+            reply({message: 'Repetido'});
           }
         });
       }
@@ -43,11 +48,14 @@ var upload = function (request, reply){
       for(var a = 0; a < results.length; a++){
         if(results[a].link === tempVar.link) {
           exists = true;
+          reply({message: 'Repetido'});
         }
       }
       if(exists === false) {
         console.log('cenas');
-        db.collection('news').insert(tempVar, function() {});
+        db.collection('news').insert(tempVar, function() {
+          reply({message: 'Success'});
+        });
       }
     });
   }

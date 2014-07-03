@@ -1,10 +1,9 @@
 
 var lastContent = function(request, reply) {
   var db = request.server.plugins.mongodb.db;
-  var lastContent = db.collection('lastContent');
   switch (request.method) {
   case 'get':
-    lastContent.find().sort({count: -1}, function (err, results) {
+    db.collection('lastContent').find().sort({count: 1}).toArray(function(err, results){
       reply(results);
     });
     break;
